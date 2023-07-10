@@ -5,6 +5,12 @@
 #error libtriforce is for x86_64 architecture ONLY
 #endif
 
+#if defined(_MSC_VER)
+#include <intrin.h>
+#elif defined(__GNUC__) || defined(__clang__)
+#include <cpuid.h>
+#endif
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
