@@ -17,7 +17,10 @@ function(merge_headers)
   get_filename_component(merged_file_name ${merged} NAME)
   string(REGEX REPLACE "\\.[^.]*$" "" merged_interface_lib ${merged_file_name})
   message(STATUS "Generating interface library: ${merged_interface_lib}")
-  add_library(${merged_interface_lib} INTERFACE ${merged})
+  add_library(${merged_interface_lib} INTERFACE)
+  get_filename_component(merged_dir ${merged} DIRECTORY)
+  set_target_properties(${merged_interface_lib}
+    PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${merged_dir})
 
   # Define guard
   string(TOUPPER ${merged_file_name} merged_file_name_upper)
