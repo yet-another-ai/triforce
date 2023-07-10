@@ -1,10 +1,8 @@
 cmake_minimum_required(VERSION 3.26)
-project(triforce VERSION 0.0.1 LANGUAGES C)
+project(triforce VERSION 0.0.1 LANGUAGES C ASM)
 
-set(CMAKE_OSX_ARCHITECTURES "x86_64")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+set(TRIFORCE_DIST_DIR "${CMAKE_CURRENT_LIST_DIR}/dist")
 
-add_library(triforce
-  libtriforce/main.c
-)
-
-set_property(TARGET triforce PROPERTY C_STANDARD 17)
+add_subdirectory(src)
+add_subdirectory(test)
