@@ -17,4 +17,4 @@ jobs:
     - name: build
       run: cmake --build build --config Release --parallel 
     - name: test
-      run: ctest --config Release --test-dir build/test -V
+      run: ctest --build-config Release --test-dir build/test -V
