@@ -1,7 +1,7 @@
 #ifndef __TRIFORCE_CPU_DETECTOR_H__
 #define __TRIFORCE_CPU_DETECTOR_H__
 
-#if !defined(__x86_64__)
+#if !defined(__x86_64__) && !defined(_M_X64) && !defined(_M_AMD64)
 #error libtriforce is for x86_64 architecture ONLY
 #endif
 
