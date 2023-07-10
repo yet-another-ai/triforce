@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: configure
-      run: cmake -B build --config Release
+      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
     - name: build
       run: cmake --build build --config Release --parallel 
     - name: test
